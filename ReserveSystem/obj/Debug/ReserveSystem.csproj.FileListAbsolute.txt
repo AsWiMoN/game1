@@ -1,0 +1,10 @@
+D:\z_tp\C_sharp\ReserveSystem\ReserveSystem\bin\Debug\ReserveSystem.exe.config
+D:\z_tp\C_sharp\ReserveSystem\ReserveSystem\bin\Debug\ReserveSystem.exe
+D:\z_tp\C_sharp\ReserveSystem\ReserveSystem\bin\Debug\ReserveSystem.pdb
+D:\z_tp\C_sharp\ReserveSystem\ReserveSystem\obj\Debug\ReserveSystem.csprojResolveAssemblyReference.cache
+D:\z_tp\C_sharp\ReserveSystem\ReserveSystem\obj\Debug\ReserveSystem.Form1.resources
+D:\z_tp\C_sharp\ReserveSystem\ReserveSystem\obj\Debug\ReserveSystem.Properties.Resources.resources
+D:\z_tp\C_sharp\ReserveSystem\ReserveSystem\obj\Debug\ReserveSystem.csproj.GenerateResource.Cache
+D:\z_tp\C_sharp\ReserveSystem\ReserveSystem\obj\Debug\ReserveSystem.csproj.CoreCompileInputs.cache
+D:\z_tp\C_sharp\ReserveSystem\ReserveSystem\obj\Debug\ReserveSystem.exe
+D:\z_tp\C_sharp\ReserveSystem\ReserveSystem\obj\Debug\ReserveSystem.pdb
