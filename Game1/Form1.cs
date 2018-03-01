@@ -44,12 +44,25 @@ namespace Game1
             {
                 y += direction;
                 direction = r.Next(-1, 2);
-                for (int _y = 0; _y < _map.GetLength(1); _y++)
+                for (int _y = y; _y < _map.GetLength(1); _y++)
                 {
-                    _map[x, 7] = 1;
+                    _map[x, _y] = 1;
                 }
 
             }
+        }
+
+        private int Clamp (int value, int max, int min)
+        {
+            if (value > max)
+            {
+                return max;
+            }
+            else if (value > min)
+            {
+                return min;
+            }
+            return value;
         }
 
 
@@ -61,36 +74,52 @@ namespace Game1
 
         private void mainLoopTimer_Tick(object sender, EventArgs e)
         {
-
-            MoveCamera();
+            Point cursor = PointToClient(Cursor.Position);
+            MoveCamera(cursor);
             
+
+           
 
             Invalidate();
             Refresh();
         }
 
-        private void MoveCamera()
-        {
-            Point cursor = PointToClient(Cursor.Position);
 
-            if (cursor.X < 50)
+
+        private void MoveCamera(Point cursor)
+        {
+            cursor = PointToClient(Cursor.Position);
+
+            float borderWidth = 50;
+            float minSpeed = -10;
+            float maxSpeed = 10;
+            float speed = 0;
+            float deep = 0; //0...50           
+
+            if (cursor.X > 750)
             {
-                viewX -= 5;                
+                deep = 50 - (800 - cursor.X);
+                
             }
-            else if (cursor.X > 750)
+            else if (cursor.X < 50)
             {
-                viewX += 5;
-            }
-            else if (cursor.Y < 50)
-            {
-                viewY -= 5;
+                deep = -50 + cursor.X;
             }
             else if (cursor.Y > 550)
             {
-                viewY += 5;
+                deep = 50 - (600 - cursor.Y);
+                
             }
-
-
+            else if (cursor.Y < 50)
+            {
+                deep = -50 + cursor.Y;
+            }
+            deep = Clamp((int)deep, -50, 50);
+            speed = 10 * (deep / borderWidth);
+            viewX += (int)speed;
+            viewY -= (int)speed;
+            viewX = Clamp(viewX, 0, _map.GetLength(0) * blockWidth - 800);
+            viewX = Clamp(viewY, 0, _map.GetLength(1) * blockWidth - 600);
             log.Text = cursor.ToString();
         }
 
@@ -104,6 +133,15 @@ namespace Game1
             {
                 viewX -= 5;
             }
+            else if (e.KeyCode==Keys.W)
+            {
+                viewY += 5;
+            }
+            else if (e.KeyCode==Keys.S)
+            {
+                viewY -= 5;
+            }
+
         }
 
       
